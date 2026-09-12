@@ -1,0 +1,62 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Node and package managers
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Frontend build output
+dist/
+build/
+dist-ssr/
+.vite/
+.next/
+frontend/dev-dist/
+frontend/dev-dist/**
+
+# TypeScript build metadata
+*.tsbuildinfo
+
+# IDE and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs and local databases
+*.log
+*.sqlite
+*.sqlite3
+
+# Coverage and temporary files
+coverage/
+.tmp/
+tmp/
+
+# Secrets and private keys
+*.pem
+*.key
+*.p12
+*.crt
+credentials.json
+service-account*.json

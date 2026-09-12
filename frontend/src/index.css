@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* shadcn/ui CSS variable mapping → SplitKaro green palette */
+    --background: 60 9% 98%;       /* #fafaf9 off-white */
+    --foreground: 20 14% 11%;      /* #1c1917 charcoal */
+
+    --card: 0 0% 100%;
+    --card-foreground: 20 14% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 20 14% 11%;
+
+    --primary: 142 72% 36%;        /* #16a34a green-600 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 60 5% 96%;        /* near-white secondary surface */
+    --secondary-foreground: 20 14% 11%;
+
+    --muted: 60 5% 96%;
+    --muted-foreground: 25 5% 45%;
+
+    --accent: 142 76% 36%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 20 6% 90%;
+    --input: 20 6% 90%;
+    --ring: 142 72% 36%;
+
+    --radius: 12px;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    /* Prevent overscroll bounce on iOS */
+    overscroll-behavior: none;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-surface text-ink font-sans antialiased;
+    /* Safe-area insets for notch/home-bar devices */
+    padding-bottom: env(safe-area-inset-bottom);
+    min-height: 100dvh;
+  }
+
+  #root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Smooth scrolling everywhere */
+  * {
+    scroll-behavior: smooth;
+  }
+
+  /* Remove tap highlight on mobile */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Focus visible only for keyboard navigation */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-600 ring-offset-2;
+  }
+}
+
+@layer utilities {
+  /* Skeleton shimmer loader */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      theme(colors.surface.muted) 25%,
+      theme(colors.surface.card) 50%,
+      theme(colors.surface.muted) 75%
+    );
+    background-size: 200% 100%;
+    @apply animate-shimmer rounded-xl;
+  }
+
+  /* Safe bottom padding for bottom-nav devices */
+  .pb-safe {
+    padding-bottom: calc(80px + env(safe-area-inset-bottom));
+  }
+
+  /* Positive balance — green tint */
+  .balance-positive {
+    @apply text-brand-600 bg-brand-50 px-2 py-0.5 rounded-full text-sm font-semibold;
+  }
+
+  /* Negative balance — amber tint (avoid pure red = alarming) */
+  .balance-negative {
+    @apply text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full text-sm font-semibold;
+  }
+}
