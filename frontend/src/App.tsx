@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AppRouter } from "@/router";
 import { useAuthStore } from "@/store/authStore";
@@ -44,10 +44,10 @@ function AuthBootstrap() {
 export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <BrowserRouter>
+      <HashRouter>
         <AuthBootstrap />
         <AppRouter />
-      </BrowserRouter>
+      </HashRouter>
     </QueryClientProvider>
   );
 }

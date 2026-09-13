@@ -66,7 +66,7 @@ export function GroupDetailPage() {
   };
 
   const inviteLink = invite
-    ? new URL(invite.invite_url, window.location.origin).toString()
+    ? `${window.location.origin}/#${invite.invite_url}`
     : "";
 
   const copyInvite = async () => {
