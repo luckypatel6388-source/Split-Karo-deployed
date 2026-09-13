@@ -10,7 +10,13 @@
 
 import type { ApiError } from "@/types/api";
 
-const BASE_URL = import.meta.env.VITE_API_BASE_URL ?? "/api/v1";
+const configuredBaseUrl = import.meta.env.VITE_API_BASE_URL?.trim();
+const isAbsoluteApiUrl = configuredBaseUrl?.startsWith("http://") || configuredBaseUrl?.startsWith("https://");
+const BASE_URL = isAbsoluteApiUrl
+  ? configuredBaseUrl
+  : import.meta.env.DEV
+    ? "/api/v1"
+    : "https://splitkarowebservice.onrender.com/api/v1";
 
 export class ApiRequestError extends Error {
   status: number;
