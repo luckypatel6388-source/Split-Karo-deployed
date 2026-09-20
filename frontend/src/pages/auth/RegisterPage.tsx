@@ -77,7 +77,7 @@ export function RegisterPage() {
               id="name"
               type="text"
               autoComplete="name"
-              placeholder="Priya Sharma"
+              placeholder="Lucky Patel"
               {...register("name")}
               aria-invalid={!!errors.name}
             />
